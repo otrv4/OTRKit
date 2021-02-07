@@ -35,6 +35,7 @@ fi
 BINS=(libgpg-error.a)
 BINS+=(libgcrypt.a)
 BINS+=(libotr.a)
+BINS+=(libsodium.a)
 
 NUMBER_OF_BUILT_ARCHS=${#ARCHS[@]}
 

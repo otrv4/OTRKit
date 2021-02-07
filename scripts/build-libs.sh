@@ -3,7 +3,7 @@
 # User variables
 # VARIABLE : valid options
 # ARCHS : x86_64 x86_64-simulator x86_64-maccatalyst arm64
-# LIBRARIES: gpg-error gcrypt otr
+# LIBRARIES: gpg-error gcrypt otr libsodium
 # USE_BUILD_LOG: true false
 # PLATFORM_TARGET: iOS macOS
 
@@ -50,7 +50,7 @@ fi
 if [ -n "${LIBRARIES}" ]; then
   echo "Building user-defined libraries: ${LIBRARIES}"
 else
-  LIBRARIES="gpg-error gcrypt otr"
+  LIBRARIES="gpg-error gcrypt otr libsodium"
   echo "Building libraries: ${LIBRARIES}"
 fi
 
@@ -164,7 +164,7 @@ do
     else
       ../build-${LIBRARY}.sh
     fi
-    
+
     # Remove junk
     rm -rf "${ROOTDIR}"
 
@@ -179,6 +179,7 @@ cd ../
 BINS=(libgpg-error.a)
 BINS+=(libgcrypt.a)
 BINS+=(libotr.a)
+BINS+=(libsodium.a)
 
 NUMBER_OF_BUILT_ARCHS=${#BUILT_ARCHS[@]}
 
